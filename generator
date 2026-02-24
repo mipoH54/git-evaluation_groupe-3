@@ -31,7 +31,12 @@ def generer_operation(nb_expressions: int) -> str:
         print(f"{a}{op}{b}") 
 
 def main(argv: list[str]) -> int:
-    nb_expressions = int(argv[1])
+    nb_expressions, erreur = verifier_arg(argv)
+    if erreur is not None:
+        print(erreur, file=sys.stderr)
+        affiche_utilisation()
+        return 1
+    
     generer_operation(nb_expressions)
     return 0
 
