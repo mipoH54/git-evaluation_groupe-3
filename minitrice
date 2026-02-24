@@ -76,7 +76,7 @@ def process_ligne(ligne):
     return 0
 
 
-# Fonction pour le mode intéractif
+# Fonction pour le mode intéractif, elle détetecte la fin ou non des calculs
 def mode_interactif():
     exit_code = 0
 
@@ -96,4 +96,16 @@ def mode_interactif():
         pass
 
     print("Fin des calculs :)")
+    return exit_code
+
+
+# Fonction pour le mode "non-interactif"
+def stdin_mode():
+    exit_code = 0
+
+    for line in sys.stdin:
+        code = process_ligne(line)
+        if code != 0:
+            exit_code = 1
+
     return exit_code
