@@ -15,3 +15,17 @@ def parse_expression(line: str):
     b = float(match.group(3))
 
     return a, op, b
+
+
+# Fonction des opérations élémentaires
+def compute(a, op, b):
+    if op == '+':       # Addition
+        return a + b
+    elif op == '-':     # Soustraction
+        return a - b
+    elif op == '*':     # Multiplication
+        return a * b
+    elif op == '/':     # Division
+        if b == 0:
+            return None  # division par zéro
+        return a / b
