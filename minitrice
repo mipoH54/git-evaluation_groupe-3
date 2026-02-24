@@ -1,0 +1,17 @@
+import re
+
+# Fonction de parsing pour les lignes données
+def parse_expression(line: str):
+    line = line.strip()
+
+    # regex pour capturer : nombre opérateur nombre
+    match = re.fullmatch(r'(\d+)\s*([\+\-\*/])\s*(\d+)', line)
+
+    if not match:
+        return None
+
+    a = float(match.group(1))
+    op = match.group(2)
+    b = float(match.group(3))
+
+    return a, op, b
