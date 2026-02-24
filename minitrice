@@ -39,3 +39,16 @@ def syntaxe_erreur(line):
 # onction pour simplifier afficher qu'une erreur s'est produite dû à une division par 0
 def division_par_zero():
     print("Division par zéro")
+
+
+# Fonction pour le format de sortie des resultats
+def format_resultat(resultat):
+    if resultat is None:
+        return None
+
+    # si entier
+    if resultat.is_integer():
+        return str(int(resultat))
+
+    # sinon arrondi 2 décimales
+    return f"{resultat:.2f}".rstrip('0').rstrip('.')
