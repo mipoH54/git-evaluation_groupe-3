@@ -17,6 +17,8 @@ def generer_operation(nb_expressions: int) -> str:
         print(f"{a} {op} {b}") 
 
 def main(argv: list[str]) -> int:
+    nb_expressions = int(argv[1])
+    generer_operation(nb_expressions)
     return 0
 
 if __name__ == "__main__":
