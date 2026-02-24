@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 import sys
+import random
+
+Minimum = 1
+Maximum = 1000
+Operations = ["+", "-", "*", "/"]
+
+def tirage_operation() -> str:
+    return random.choice(Operations)
+
+def generer_operation(nb_expressions: int) -> str:
+    for _ in range(nb_expressions):
+        a = random.randint(Minimum, Maximum)
+        b = random.randint(Minimum, Maximum)
+        op = tirage_operation()
+        print(f"{a} {op} {b}") 
 
 def main(argv: list[str]) -> int:
     return 0
