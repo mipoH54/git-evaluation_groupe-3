@@ -14,7 +14,7 @@ def generer_operation(nb_expressions: int) -> str:
         a = random.randint(Minimum, Maximum)
         b = random.randint(Minimum, Maximum)
         op = tirage_operation()
-        print(f"{a} {op} {b}") 
+        print(f"{a}{op}{b}") 
 
 def main(argv: list[str]) -> int:
     nb_expressions = int(argv[1])
