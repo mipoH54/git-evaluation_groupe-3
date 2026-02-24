@@ -52,3 +52,24 @@ def format_resultat(resultat):
 
     # sinon arrondi 2 décimales
     return f"{resultat:.2f}".rstrip('0').rstrip('.')
+
+
+# Fonction analysant le calcul émit par l'utilisateur
+# Elle verifie si la syntaxe est correcte, effectue le calcul et affiche le resultat
+def process_ligne(ligne):
+    parsed = parse_expression(ligne)
+
+    if parsed is None:
+        syntaxe_erreur(ligne)
+        return 1
+
+    a, op, b = parsed
+
+    result = compute(a, op, b)
+
+    if result is None:
+        division_par_zero()
+        return 1
+
+    print(format_resultat(result))
+    return 0
