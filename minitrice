@@ -109,3 +109,19 @@ def stdin_mode():
             exit_code = 1
 
     return exit_code
+
+
+# Fonction main qui vérifie si l'on est en mode interactif ou non
+def main():
+    if sys.stdin.isatty():
+        # mode interactif
+        code = mode_interactif()
+    else:
+        # mode pipe
+        code = stdin_mode()
+
+    sys.exit(code)
+
+
+if __name__ == "__main__":
+    main()
