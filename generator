@@ -6,6 +6,20 @@ Minimum = 1
 Maximum = 1000
 Operations = ["+", "-", "*", "/"]
 
+def affiche_utilisation() -> None:
+    print("Utilisation: ./generator <nombre d'expressions>", file=sys.stderr)
+
+def verifier_arg(argv: list[str]) -> tuple[int |None, str | None]:
+    if len(argv) != 2:
+        return None, "Argument manquant."
+    try:
+        nb = int(argv[1])
+    except ValueError:
+        return None, "L'argument doit être un entier."
+    if nb < 0:
+        return None, "Le nombre d'expressions doit être >= 0."
+    return nb, None
+
 def tirage_operation() -> str:
     return random.choice(Operations)
 
