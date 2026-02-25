@@ -1,5 +1,11 @@
 # Minitrice
 
+- [Installation](#installation)
+- [Exécution](#exécution)
+- [Générator](#générator)
+- [Publication](#publication)
+- [Liens utiles](#liens-utiles)
+
 # Installation
 
 ## Prérequis
@@ -127,14 +133,14 @@ Sortie :
 Le nombre d'expressions doit être >= 0.
 ```
 
-#Publication
+# Publication
 
 Vidéo Gource :
 
 
 
 # Liens utiles
-- ChatGPT (OpenAI) : [https://chat.openai.com/](https://chat.openai.com/) — utilisé pour la création du fichier de test et la correction de certaines erreurs
-- Guide Gource : [https://dev.to/voieducode/my-gource-video-production-pipeline-5eb0](https://dev.to/voieducode/my-gource-video-production-pipeline-5eb0) — utilisé pour comprendre comment générer une vidéo Gource
+- ChatGPT (OpenAI) : [https://chat.openai.com/](https://chat.openai.com/) : utilisé pour la création du fichier de test et la correction de certaines erreurs
+- Guide Gource : [https://dev.to/voieducode/my-gource-video-production-pipeline-5eb0](https://dev.to/voieducode/my-gource-video-production-pipeline-5eb0) : utilisé pour comprendre comment générer une vidéo Gource
 
 
