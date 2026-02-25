@@ -63,7 +63,7 @@ $ echo $?
 0
 ```
 
-# 🎲 Generator
+# Generator
 
 Le programme `generator` génère des expressions aléatoires.
 
@@ -134,7 +134,7 @@ Vidéo Gource :
 
 
 # Liens utiles
-* ChatGPT (OpenAI) : [https://chat.openai.com/]: pour fichier test et correction dans nos erreurs
-* site gource : [https://dev.to/voieducode/my-gource-video-production-pipeline-5eb0] : afin de bien vérifier comment faire la vidéo gource
+- ChatGPT (OpenAI) : [https://chat.openai.com/](https://chat.openai.com/) — utilisé pour la création du fichier de test et la correction de certaines erreurs
+- Guide Gource : [https://dev.to/voieducode/my-gource-video-production-pipeline-5eb0](https://dev.to/voieducode/my-gource-video-production-pipeline-5eb0) — utilisé pour comprendre comment générer une vidéo Gource
 
 
