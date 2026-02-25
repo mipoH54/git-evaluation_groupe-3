@@ -1,0 +1,127 @@
+import re
+import sys
+
+# Fonction de parsing pour les lignes données
+def parse_expression(line: str):
+    line = line.strip()
+
+    # regex pour capturer : nombre opérateur nombre
+    match = re.fullmatch(r'(\d+)\s*([\+\-\*/])\s*(\d+)', line)
+
+    if not match:
+        return None
+
+    a = float(match.group(1))
+    op = match.group(2)
+    b = float(match.group(3))
+
+    return a, op, b
+
+
+# Fonction des opérations élémentaires
+def compute(a, op, b):
+    if op == '+':       # Addition
+        return a + b
+    elif op == '-':     # Soustraction
+        return a - b
+    elif op == '*':     # Multiplication
+        return a * b
+    elif op == '/':     # Division
+        if b == 0:
+            return None  # division par zéro
+        return a / b
+
+
+# Fonction pour simplifier afficher qu'une erreur de syntaxe s'est produite
+def syntaxe_erreur(line):
+    print(f'Erreur de syntaxe pour le calcul: "{line.strip()}"')
+
+
+# onction pour simplifier afficher qu'une erreur s'est produite dû à une division par 0
+def division_par_zero():
+    print("Division par zéro")
+
+
+# Fonction pour le format de sortie des resultats
+def format_resultat(resultat):
+    if resultat is None:
+        return None
+
+    # si entier
+    if resultat.is_integer():
+        return str(int(resultat))
+
+    # sinon arrondi 2 décimales
+    return f"{resultat:.2f}".rstrip('0').rstrip('.')
+
+
+# Fonction analysant le calcul émit par l'utilisateur
+# Elle verifie si la syntaxe est correcte, effectue le calcul et affiche le resultat
+def process_ligne(ligne):
+    parsed = parse_expression(ligne)
+
+    if parsed is None:
+        syntaxe_erreur(ligne)
+        return 1
+
+    a, op, b = parsed
+
+    result = compute(a, op, b)
+
+    if result is None:
+        division_par_zero()
+        return 1
+
+    print(format_resultat(result))
+    return 0
+
+
+# Fonction pour le mode intéractif, elle détetecte la fin ou non des calculs
+def mode_interactif():
+    exit_code = 0
+
+    try:
+        while True:
+            print("> ", end="", flush=True)
+            line = sys.stdin.readline()
+
+            if not line:
+                break
+
+            code = process_ligne(line)
+            if code != 0:
+                exit_code = 1
+
+    except EOFError:
+        pass
+
+    print("Fin des calculs :)")
+    return exit_code
+
+
+# Fonction pour le mode "non-interactif"
+def stdin_mode():
+    exit_code = 0
+
+    for line in sys.stdin:
+        code = process_ligne(line)
+        if code != 0:
+            exit_code = 1
+
+    return exit_code
+
+
+# Fonction main qui vérifie si l'on est en mode interactif ou non
+def main():
+    if sys.stdin.isatty():
+        # mode interactif
+        code = mode_interactif()
+    else:
+        # mode pipe
+        code = stdin_mode()
+
+    sys.exit(code)
+
+
+if __name__ == "__main__":
+    main()
